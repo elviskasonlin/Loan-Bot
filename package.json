@@ -4,7 +4,8 @@
   "description": "Loan Bot for Krungthai Bank",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "deploy": "heroku git:remote -a loan-bot && git add -A && git commit -m \"build\" && git push heroku master"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,8 @@
     "body-parser": "^1.18.3",
     "dialogflow": "^0.7.0",
     "express": "^4.16.3",
-    "unirest": "^0.5.1"
+    "express-async-wrapper": "^0.1.0",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "dotenv": "^6.1.0"
