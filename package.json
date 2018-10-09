@@ -4,7 +4,7 @@
   "description": "Loan Bot for Krungthai Bank",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "npm install && node src/index.js",
     "deploy": "heroku git:remote -a loan-bot && git add -A && git commit -m \"build\" && git push heroku master",
     "log": "heroku logs --app loan-bot --tail"
   },
@@ -25,6 +25,9 @@
     "url": "https://github.com/elviskasonlin/Loan-Bot/issues"
   },
   "homepage": "https://github.com/elviskasonlin/Loan-Bot#readme",
+  "engines": {
+    "node": "8.4.0"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "dialogflow": "^0.7.0",
