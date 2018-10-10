@@ -1,30 +1,33 @@
 /*
-* NOTE: Firebase Realtime database link https://loan-bot.firebaseio.com/
-*
-*
+ * Created by P. Elvis on 9 October 2018
 */
 
+'use strict';
+
+// Load environment config if not specified as production
 if (!process.env.PRODUCTION) {
   require('dotenv').config();
 }
 
+// Imports node modules
 const express = require('express');
-const app = express();
-app.use(require('body-parser').json());
 const firebaseAdmin = require('firebase-admin');
 const request = require('request');
 
-const { VERIFY_TOKEN } = process.env.VERIFY_TOKEN;
+// Create app
+const app = express();
+app.use(require('body-parser').json());
 
-app.listen(process.env.PORT, () => {
-  console.log("Webhook is listening on port " + process.env.PORT);
-});
+// Import main files
+const graph = require('./graph/index');
+const eventHandler = require('./eventHandler/index');
 
 //////////////////////
 // Webhook endpoint //
 //////////////////////
 
 // POST method route for /webhook 
+// For actions done by the user such as sending a message to the bot.
 app.post('/webhook', (req, res) => {
   const body = req.body;
 
@@ -40,9 +43,9 @@ app.post('/webhook', (req, res) => {
 
       // Check if the event is a message or postback and pass the event to the appropriate handler function
       if (webhook_event.message) {
-        handleMessage(sender_psid, webhook_event.message);        
+        eventHandler.handleMessageEvent(sender_psid, webhook_event.message);        
       } else if (webhook_event.postback) {
-        handlePostback(sender_psid, webhook_event.postback);
+        eventHandler.handlePostbackEvent(sender_psid, webhook_event.postback);
       }
 
     });
@@ -57,6 +60,7 @@ app.post('/webhook', (req, res) => {
 });
 
 // GET method route for /webhook
+// Verifies whether if it's a request sent from Facebook
 app.get('/webhook', (req, res) => {
   // Parse the query params
   let mode = req.query['hub.mode'];
@@ -66,7 +70,7 @@ app.get('/webhook', (req, res) => {
   // Checks if a token and mode is in the query string of the request
   if (mode && token) {
     // Checks the mode and token sent is correct
-    if (mode === 'subscribe' && token === VERIFY_TOKEN) {
+    if (mode === 'subscribe' && token === process.env.VERIFY_TOKEN) {
       // Responds with the challenge token from the request
       console.log('WEBHOOK_VERIFIED');
       res.status(200).send(challenge);
@@ -77,95 +81,8 @@ app.get('/webhook', (req, res) => {
   }
 });
 
-////////////////////
-// Event handlers //
-////////////////////
+// Configure app to listen on port specified in the environment
+app.listen(process.env.PORT, () => {
+  console.log("Webhook is listening on port " + process.env.PORT);
+});
 
-// Handles messages events
-function handleMessage(sender_psid, received_message) {
-  let response;
-
-  // Check if the message contains text & create payload
-  if (received_message.text) {    
-    response = {
-      "text": `You sent the message: "${received_message.text}". Now send me an image!`
-    }
-  } else if (received_message.attachments) {
-    // Gets the URL of the message attachment
-    const attachment_url = received_message.attachments[0].payload.url;
-
-    response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Is this the right picture?",
-            "subtitle": "Tap a button to answer.",
-            "image_url": attachment_url,
-            "buttons": [
-              {
-                "type": "postback",
-                "title": "Yes!",
-                "payload": "yes",
-              },
-              {
-                "type": "postback",
-                "title": "No!",
-                "payload": "no",
-              }
-            ],
-          }]
-        }
-      }
-    }
-
-  }
-  
-  // Sends the response message
-  callSendAPI(sender_psid, response);    
-}
-
-// Handles messaging_postbacks events
-// These events are those where the user clicks on postback buttons in templates
-function handlePostback(sender_psid, received_postback) {
-  let response;
-  
-  // Get the payload for the postback
-  const payload = received_postback.payload;
-
-  // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Thanks!" };
-  } else if (payload === 'no') {
-    response = { "text": "Oops, try sending another image." };
-  }
-  // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
-}
-
-// Sends response messages via the Send API
-// This will post to facebook's messenger platform
-function callSendAPI(sender_psid, response) {
-  // Construct the message body
-  let request_body = {
-    "recipient": {
-      "id": sender_psid
-    },
-    "message": response
-  }
-
-  // Send the HTTP request to the Messenger Platform
-  request({
-    "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token": process.env.FACEBOOK_PAGE_ACCESS_TOKEN},
-    "method": "POST",
-    "json": request_body
-  }, (err, res, body) => {
-    if (!err) {
-      console.log('message sent!');
-    } else {
-      console.error("Unable to send message:" + err);
-    }
-  }); 
-}
