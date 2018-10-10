@@ -12,6 +12,7 @@ const express = require('express');
 const app = express();
 app.use(require('body-parser').json());
 const firebaseAdmin = require('firebase-admin');
+const request = require('request');
 
 const { VERIFY_TOKEN } = process.env.VERIFY_TOKEN;
 
