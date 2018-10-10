@@ -17,7 +17,7 @@ const graph = require('../graph/index');
 ////////////////////
 
 // Handles MESSAGE events
-module.exports.handleMessageEvent = function(sender_psid, received_message, entry) {
+module.exports.handleMessageEvent = function(sender_psid, received_message, webhook_event) {
   let response;
 
   console.log("EVENT HANDLER LOG : " + JSON.stringify(entry));
@@ -65,7 +65,7 @@ module.exports.handleMessageEvent = function(sender_psid, received_message, entr
 
 // Handles POSTBACK events
 // These events are those where the user clicks on postback buttons in templates
-module.exports.handlePostbackEvent = function(sender_psid, received_postback, entry) {
+module.exports.handlePostbackEvent = function(sender_psid, received_postback, webhook_event) {
   let response;
   
   // Get the payload for the postback

@@ -33,21 +33,18 @@ app.post('/webhook', (req, res) => {
 
    if (body.object === 'page') {
     body.entry.forEach(function(entry) {
-      // Gets the body of the webhook event
-      const webhook_event = entry.messaging[0];
-      console.log(JSON.stringify(webhook_event);
-
+      entry.messaging.forEach(function(webhook_event) {
       // Get the sender PSID
       const sender_psid = webhook_event.sender.id;
-      console.log('Sender PSID: ' + sender_psid);
 
       // Check if the event is a message or postback and pass the event to the appropriate handler function
       if (webhook_event.message) {
-        eventHandler.handleMessageEvent(sender_psid, webhook_event.message, entry);        
+        eventHandler.handleMessageEvent(sender_psid, webhook_event.message, webhook_event);        
       } else if (webhook_event.postback) {
-        eventHandler.handlePostbackEvent(sender_psid, webhook_event.postback, entry);
+        eventHandler.handlePostbackEvent(sender_psid, webhook_event.postback, webhook_event);
       }
 
+      });
     });
 
     // Returns a '200 OK' response to all requests
