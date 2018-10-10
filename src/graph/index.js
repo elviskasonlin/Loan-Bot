@@ -3,8 +3,11 @@
 // SEND RESPONSE //
 ///////////////////
 
+const request = require('request');
+
 // Sends response messages via the Send API
 // This will post to facebook's messenger platform
+
 module.exports.sendMessage = function(sender_psid, response) {
   // Construct the message body
   let request_body = {
