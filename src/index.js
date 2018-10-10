@@ -126,11 +126,13 @@ function handleMessage(sender_psid, received_message) {
 }
 
 // Handles messaging_postbacks events
+// These events are those where the user clicks on postback buttons in templates
 function handlePostback(sender_psid, received_postback) {
 
 }
 
 // Sends response messages via the Send API
+// This will post to facebook's messenger platform
 function callSendAPI(sender_psid, response) {
   // Construct the message body
   let request_body = {
@@ -138,7 +140,7 @@ function callSendAPI(sender_psid, response) {
       "id": sender_psid
     },
     "message": response
-  };
+  }
 
   // Send the HTTP request to the Messenger Platform
   request({
