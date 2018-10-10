@@ -20,7 +20,7 @@ const graph = require('../graph/index');
 module.exports.handleMessageEvent = function(sender_psid, received_message, webhook_event) {
   let response;
 
-  console.log(webhook_event);
+  console.log("EVENT HANDLER LOG : " + webhook_event);
 
   // Check if the message contains text & create payload
   if (received_message.text) {    
