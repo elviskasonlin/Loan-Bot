@@ -4,7 +4,7 @@ const ocr = require('../ocr/ocr');
 
 module.exports.start = function(body) {
   module.exports.state.loanapp[body.sender.id] = {
-    question: questions[1];
+    question: questions[1]
   }
 
   graph.sendMessage(body.sender.id, { 
@@ -13,7 +13,6 @@ module.exports.start = function(body) {
 
   ocr.ocr("http://gdurl.com/UzMJ");
 }
-
 
 const askQuestion = function(event, question) {
 
