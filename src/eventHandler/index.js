@@ -11,7 +11,6 @@ const state = {
 const graph = require('../graph/index'); 
 const loanapp = require('../loanApp/index');
 loanapp.state = state;
-faq.state = state;
 
 ////////////////////
 // Event handlers //
