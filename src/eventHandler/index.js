@@ -9,6 +9,7 @@ const state = {
 
 // Import modules
 const graph = require('../graph/index'); 
+const loanapp = require('../loanApp/index');
 
 ////////////////////
 // Event handlers //
@@ -66,17 +67,26 @@ module.exports.handleMessageEvent = function(sender_psid, received_message, body
 module.exports.handlePostbackEvent = function(sender_psid, received_postback, body) {
   let response;
 
-  console.log(JSON.stringify(body));
-  
+  // DEBUG
+  //console.log(JSON.stringify(body));
+
+  // State reloading
+  const reloadState = function() {
+    // Reload the state.
+    state.loanapp[sender_psid] = undefined;
+  }
+
   // Get the payload for the postback
   const payload = received_postback.payload;
 
-  // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Thanks!" };
-  } else if (payload === 'no') {
-    response = { "text": "Oops, try sending another image." };
+  // Set the which module responds based on the payload event 
+  if (payload === "LOANAPP_ENTRY") {
+    reloadState();
+    loanapp.start(body);
+  } else if (payload === "FAQ_ENTRY") {
+    reloadState();
+    response = { "text": "Oops! FAQ is not available at the moment"};
+    graph.sendMessage(sender_psid, response);
   }
-  // Send the message to acknowledge the postback
-  graph.sendMessage(sender_psid, response);
+
 }
