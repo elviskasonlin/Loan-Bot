@@ -15,6 +15,9 @@ const graph = require('../graph/index');
 ////////////////////
 // Event handlers //
 ////////////////////
+const state {
+  loanApp: {}
+}
 
 // Handles MESSAGE events
 module.exports.handleMessageEvent = function(sender_psid, received_message) {
