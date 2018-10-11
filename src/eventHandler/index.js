@@ -4,9 +4,7 @@
 
 // To save the user's entire state
 const state = {
-  report: {},
-  handbook: {},
-  feedback: {}
+  loanapp: {}
 }
 
 // Import modules
@@ -15,9 +13,6 @@ const graph = require('../graph/index');
 ////////////////////
 // Event handlers //
 ////////////////////
-const state {
-  loanApp: {}
-}
 
 // Handles MESSAGE events
 module.exports.handleMessageEvent = function(sender_psid, received_message) {
