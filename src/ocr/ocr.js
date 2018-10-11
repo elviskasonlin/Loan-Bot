@@ -32,7 +32,7 @@ module.exports.ocr = function(image_uri) {
   };
 
   // Creates a client for ocr
-const client = new vision.ImageAnnotatorClient();
+const client = new gvision.ImageAnnotatorClient();
 
 // Performs label detection on the image file
 client
