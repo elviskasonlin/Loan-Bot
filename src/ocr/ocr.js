@@ -38,9 +38,10 @@ const client = new gvision.ImageAnnotatorClient();
 client
   .textDetection(image_uri)
   .then(results => {
-    const detections = results[0].textAnnotations;
-    console.log('Text:');
-    detections.forEach(text => console.log(text));
+    const detections = results[0].fullTextAnnotation;
+    const text = detections.text;
+    console.log('Text:' + text);
+    // detections.forEach(text => console.log(text));
   })
   .catch(err => {
     console.error('ERROR:', err);
