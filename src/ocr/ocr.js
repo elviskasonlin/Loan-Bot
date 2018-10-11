@@ -36,15 +36,16 @@ const client = new gvision.ImageAnnotatorClient();
 
 // Performs label detection on the image file
 client
-  .labelDetection(image_uri)
+  .textDetection(image_uri)
   .then(results => {
-    const labels = results[0].labelAnnotations;
-    console.log('Labels:');
-    labels.forEach(label => console.log(label.description));
+    const detections = results[0].textAnnotations;
+    console.log('Text:');
+    detections.forEach(text => console.log(text));
   })
   .catch(err => {
     console.error('ERROR:', err);
   });
+// [END vision_text_detection]
 
 };
 
