@@ -17,7 +17,7 @@ loanapp.state = state;
 ////////////////////
 
 // Handles MESSAGE events
-module.exports.handleMessageEvent = function(sender_psid, received_message, body) {
+module.exports.handleMessageEvent = function(sender_psid, received_message, webhook_event) {
   let response;
 
   // Check if the message contains text & create payload
@@ -63,7 +63,7 @@ module.exports.handleMessageEvent = function(sender_psid, received_message, body
 
 // Handles POSTBACK events
 // These events are those where the user clicks on postback buttons in templates
-module.exports.handlePostbackEvent = function(sender_psid, received_postback, body) {
+module.exports.handlePostbackEvent = function(sender_psid, received_postback, webhook_event) {
   let response;
 
   // DEBUG

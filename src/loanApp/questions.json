@@ -7,19 +7,19 @@
   },
   {
     "text": "Quit",
-    "_comment": " ",
+    "_comment": "To exit loan application process at any stage.",
     "_index": "0",
     "reply": " "
   },
   {
-    "text": "GET NRIC",
-    "_comment": " ",
+    "text": "GET NATIONAL ID",
+    "_comment": "Ask user for their National Identity Card",
     "_index": "2",
     "reply": " "
   },
   {
     "text": "GET STATEMENT",
-    "_comment": " ",
+    "_comment": "Ask user for their Bank Statement.",
     "_index": "3",
     "reply": " "
   },
