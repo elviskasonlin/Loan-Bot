@@ -7,7 +7,7 @@ module.exports.start = function(webhook_event) {
     question: questions[1]
   }
 
-  graph.sendMessage(body.sender.id, { 
+  graph.sendMessage(webhook_event.sender.id, { 
     "text" : "You can type 'quit' anytime to stop the loan application process."
   });
 
