@@ -15,11 +15,13 @@ const graph = require('../graph/index');
 ////////////////////
 
 // Handles MESSAGE events
-module.exports.handleMessageEvent = function(sender_psid, received_message) {
+module.exports.handleMessageEvent = function(sender_psid, received_message, body) {
   let response;
 
+
+  
   // Check if the message contains text & create payload
-  if (received_message.text) {    
+  if (received_message.text) {
     response = {
       "text": `You sent the message: "${received_message.text}". Now send me an image!`
     }
@@ -61,8 +63,10 @@ module.exports.handleMessageEvent = function(sender_psid, received_message) {
 
 // Handles POSTBACK events
 // These events are those where the user clicks on postback buttons in templates
-module.exports.handlePostbackEvent = function(sender_psid, received_postback) {
+module.exports.handlePostbackEvent = function(sender_psid, received_postback, body) {
   let response;
+
+  console.log(JSON.stringify(body));
   
   // Get the payload for the postback
   const payload = received_postback.payload;

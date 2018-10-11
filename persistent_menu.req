@@ -1,0 +1,17 @@
+curl -X POST -H "Content-Type: application/json" -d '{
+  "setting_type" : "call_to_actions",
+  "thread_state" : "existing_thread",
+  "composer_input_disabled" : true,
+  "call_to_actions":[
+    {
+      "type": "postback",
+      "title": "Apply for loan",
+      "payload": "LOANAPP_ENTRY"
+    },
+    {
+      "type": "postback",
+      "title": "Frequently Answered Questions",
+      "payload": "FAQ_ENTRY"
+    }
+  ]
+}' "https://graph.facebook.com/v3.1/me/thread_settings?access_token=EAAJXpEB1ukgBAAHXMsrNXHlc4ty3VJJvXjWvjhZAvXzQ6SzOewbP35hw6OzMuj6zmZBax6KjNHugN0SpLo88ZAYYTm2H8EqzTYfAGBXrct5L6UotEagQybKle4CwQVmHSh66vCCEwR35g8WIroqofdC6Llr1dszJzDlloKYQgZDZ"
