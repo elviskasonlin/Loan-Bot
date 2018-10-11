@@ -6,15 +6,3 @@
     "reply": "Hi, please state your loan entry"
   }
 ]
-
-
-{
-  "id":"490163588152016","time":1539239152796,"messaging":[
-    {
-      "recipient":{"id":"490163588152016"},
-      "timestamp":1539239152796,
-      "sender":{"id":"2137702349581491"},
-      "postback":{"payload":"LOANAPP_ENTRY","title":"Apply for loan"}
-      }
-      ]
-    }
