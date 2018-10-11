@@ -4,5 +4,11 @@
     "_comment": "Start of loan application",
     "_index": "0",
     "reply": "Hi, please state your loan entry"
+  },
+  {
+    "text": " ",
+    "_comment": " ",
+    "_index": " ",
+    "reply": " "
   }
 ]
