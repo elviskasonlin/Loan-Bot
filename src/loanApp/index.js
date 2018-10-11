@@ -3,7 +3,7 @@ const questions = require('./questions.json');
 const ocr = require('../ocr/ocr');
 
 module.exports.start = function(body) {
-  module.exports.state.report[body.sender.id] = {
+  module.exports.state.loanapp[body.sender.id] = {
     question: questions[1]
   }
 
