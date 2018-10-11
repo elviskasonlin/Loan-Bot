@@ -2,11 +2,6 @@
 // Event Handler Prerequisites //
 /////////////////////////////////
 
-// To save the user's entire state
-const state = {
-  loanapp: {}
-}
-
 // Import modules
 const graph = require('../graph/index'); 
 const loanapp = require('../loanApp/index');
@@ -19,8 +14,6 @@ const loanapp = require('../loanApp/index');
 module.exports.handleMessageEvent = function(sender_psid, received_message, body) {
   let response;
 
-
-  
   // Check if the message contains text & create payload
   if (received_message.text) {
     response = {
