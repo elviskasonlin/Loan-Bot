@@ -24,8 +24,6 @@ client
     const text = detections.text;
 
     console.log('Text:' + text);
-    
-    detections.forEach(text => console.log(text));
   })
   .catch(err => {
     console.error('ERROR:', err);
