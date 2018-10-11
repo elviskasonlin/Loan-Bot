@@ -34,6 +34,11 @@ app.post('/webhook', (req, res) => {
    if (body.object === 'page') {
     body.entry.forEach(function(entry) {
       entry.messaging.forEach(function(webhook_event) {
+
+        console.log("BODY : \n" + JSON.stringify(body) + "\n");
+        console.log("BODY.ENTRY : \n" + JSON.stringify(entry) + "\n");
+        console.log("BODY.ENTRY.MESSAGING.WEBHOOK_EVENT : \n" + JSON.stringify(webhook_event) + "\n");
+
         // Get the sender PSID
         const sender_psid = webhook_event.sender.id;
 
