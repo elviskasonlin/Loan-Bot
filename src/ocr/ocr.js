@@ -10,27 +10,6 @@ const gfirestore = require('@google-cloud/firestore');
 /////////////////
 
 module.exports.ocr = function(image_uri) {
-  const detection_type = "TEXT_DETECTION";
-  let response = {
-    "requests": [
-      {
-        "image": 
-        {
-          "source": 
-          {
-            "imageUri": "http://gdurl.com/UzMJ"
-          }
-        },
-        "features": 
-        [
-          {
-            "type":detection_type 
-          }
-        ]
-      }
-    ]
-  };
-
   // Creates a client for ocr
 const client = new gvision.ImageAnnotatorClient();
 
@@ -38,15 +17,19 @@ const client = new gvision.ImageAnnotatorClient();
 client
   .textDetection(image_uri)
   .then(results => {
+    // Almost entire object.
+    // detections include bounding boxes etc.
+    // text only accesses the final stringed text
     const detections = results[0].fullTextAnnotation;
     const text = detections.text;
+
     console.log('Text:' + text);
-    // detections.forEach(text => console.log(text));
+    
+    detections.forEach(text => console.log(text));
   })
   .catch(err => {
     console.error('ERROR:', err);
   });
-// [END vision_text_detection]
 
 };
 

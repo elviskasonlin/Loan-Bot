@@ -1,14 +1,32 @@
 [
   {
-    "text": " ",
+    "text": "Start",
     "_comment": "Start of loan application",
-    "_index": "0",
-    "reply": "Hi, please state your loan entry"
+    "_index": "1",
+    "reply": "Hi, loan entry"
   },
   {
-    "text": " ",
+    "text": "Quit",
     "_comment": " ",
-    "_index": " ",
+    "_index": "0",
+    "reply": " "
+  },
+  {
+    "text": "GET NRIC",
+    "_comment": " ",
+    "_index": "2",
+    "reply": " "
+  },
+  {
+    "text": "GET STATEMENT",
+    "_comment": " ",
+    "_index": "3",
+    "reply": " "
+  },
+  {
+    "text": "CONFIRM DETAILS",
+    "_comment": " ",
+    "_index": "4",
     "reply": " "
   }
 ]
