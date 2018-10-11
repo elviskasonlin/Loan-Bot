@@ -34,16 +34,15 @@ app.post('/webhook', (req, res) => {
    if (body.object === 'page') {
     body.entry.forEach(function(entry) {
       entry.messaging.forEach(function(webhook_event) {
-      // Get the sender PSID
-      const sender_psid = webhook_event.sender.id;
+        // Get the sender PSID
+        const sender_psid = webhook_event.sender.id;
 
-      // Check if the event is a message or postback and pass the event to the appropriate handler function
-      if (webhook_event.message) {
-        eventHandler.handleMessageEvent(sender_psid, webhook_event.message, body);        
-      } else if (webhook_event.postback) {
-        eventHandler.handlePostbackEvent(sender_psid, webhook_event.postback, body);
-      }
-
+        // Check if the event is a message or postback and pass the event to the appropriate handler function
+        if (webhook_event.message) {
+          eventHandler.handleMessageEvent(sender_psid, webhook_event.message, body);        
+        } else if (webhook_event.postback) {
+          eventHandler.handlePostbackEvent(sender_psid, webhook_event.postback, body);
+        }
       });
     });
 
