@@ -2,14 +2,16 @@
 // Event Handler Prerequisites //
 /////////////////////////////////
 
-// Import modules
-const graph = require('../graph/index'); 
-const loanapp = require('../loanApp/index');
-
 const state = {
   loanapp: " ",
   faq: " ",
 }
+
+// Import modules
+const graph = require('../graph/index'); 
+const loanapp = require('../loanApp/index');
+loanapp.state = state;
+faq.state = state;
 
 ////////////////////
 // Event handlers //
