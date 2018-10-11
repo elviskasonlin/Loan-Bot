@@ -9,7 +9,7 @@ const gfirestore = require('@google-cloud/firestore');
 // OCR Handler //
 /////////////////
 
-const doOCR = function(image_uri) {
+module.exports.ocr = function(image_uri) {
   const detection_type = "TEXT_DETECTION";
   let response = {
     "requests": [

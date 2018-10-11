@@ -16,7 +16,7 @@ const state = {
 ////////////////////
 
 // Handles MESSAGE events
-const handleMessageEvent = function(sender_psid, received_message, body) {
+module.exports.handleMessageEvent = function(sender_psid, received_message, body) {
   let response;
 
   // Check if the message contains text & create payload
@@ -62,7 +62,7 @@ const handleMessageEvent = function(sender_psid, received_message, body) {
 
 // Handles POSTBACK events
 // These events are those where the user clicks on postback buttons in templates
-const handlePostbackEvent = function(sender_psid, received_postback, body) {
+module.exports.handlePostbackEvent = function(sender_psid, received_postback, body) {
   let response;
 
   // DEBUG
