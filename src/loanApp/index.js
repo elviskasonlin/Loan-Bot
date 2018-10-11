@@ -2,8 +2,8 @@ const graph = require('../graph/index');
 const questions = require('./questions.json');
 const ocr = require('../ocr/ocr');
 
-module.exports.start = function(body) {
-  module.exports.state.loanapp[body.] = {
+module.exports.start = function(webhook_event) {
+  module.exports.state.loanapp[webhook_event.sender.id] = {
     question: questions[1]
   }
 

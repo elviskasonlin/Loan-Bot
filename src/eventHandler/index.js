@@ -81,7 +81,7 @@ module.exports.handlePostbackEvent = function(sender_psid, received_postback, we
   // Set the which module responds based on the payload event 
   if (payload === "LOANAPP_ENTRY") {
     reloadState();
-    loanapp.start(body);
+    loanapp.start(webhook_event);
   } else if (payload === "FAQ_ENTRY") {
     reloadState();
     response = { "text": "Oops! FAQ is not available at the moment"};
