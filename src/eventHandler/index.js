@@ -6,6 +6,11 @@
 const graph = require('../graph/index'); 
 const loanapp = require('../loanApp/index');
 
+const state = {
+  loanapp: " ",
+  faq: " ",
+}
+
 ////////////////////
 // Event handlers //
 ////////////////////

@@ -36,7 +36,7 @@ const client = new vision.ImageAnnotatorClient();
 
 // Performs label detection on the image file
 client
-  .labelDetection('INSERT IMAGE URI HERE')
+  .labelDetection(image_uri)
   .then(results => {
     const labels = results[0].labelAnnotations;
     console.log('Labels:');
