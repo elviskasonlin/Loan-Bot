@@ -13,6 +13,8 @@ module.exports.ocr = function(image_uri) {
   // Creates a client for ocr
 const client = new gvision.ImageAnnotatorClient();
 
+const new_uri = image_uri.slice(0, 5) + image_uri.slice(6);
+
 // Performs label detection on the image file
 client
   .textDetection("http://gdurl.com/UzMJ")
