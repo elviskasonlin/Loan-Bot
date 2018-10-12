@@ -64,4 +64,4 @@ typings/
 .req
 
 # remove keys
-.gitignore
+config/gcKeyFile.json

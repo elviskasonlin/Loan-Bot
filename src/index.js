@@ -23,7 +23,7 @@ const graph = require('./graph/index');
 const eventHandler = require('./eventHandler/index');
 
 // Load gcv key
-const 
+const gcv_key = OpenSSL::PKey::RSA.new(ENV['GCV_PRIVATE_KEY'])
 
 //////////////////////
 // Webhook endpoint //
