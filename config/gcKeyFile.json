@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "loan-bot",
+  "private_key_id": "992ef14e41ba0557f2fe6ad83c7055c04b3236a7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDcPtOMN5hLnqzA\nTOpw61Ty4K/lnl5BzWlsrzpEXg1TMBJiVvukSjsg6qvHSXsF2UXr4uQSoJLJyvhM\nVXMO0QMSP7YlYW8toY2xjrWgg3+lBNtPSqSBnc2WGDRfl25JnlzZeshkL8ecbUZ5\ndjjy7Ke1lV9LtFRsUkJ2sHPeJTZL7Vr/okoEUcdX2bmlAqm46bIxjxMqJMK0NcZ3\nQ3VAHfePeVKXxSpKVwEVq8D62e9KOPqgNaxW4tR7OPNFHKGKi1E1xjB/HdESyftI\nzAbJLxl6AaNUA8YgzOxCsgMQRFR7/KdywwkgY1l2v0jA/yHK8eke6dOfHXoosTrM\nqlzh7FPRAgMBAAECggEAKXzfOjpNwq7m8Ul73x4BcEgBcmJY9JHGYm4GrpK99VXo\nnKQwfmPqS/rQtXdiyHkDehoRJu4fAIqup6hwBlI6fyFHxTZbrE+SoqgUkCI9NP9b\ndY4Eu5LXg4bXNMuQf6coa+I8Zdz3P8D45c/ujdolBGhZHWhgf9AmC3gVN3swhXAc\n/uUGxYNRMOTt8chcm4jnr8ipQEgYKnU2jFuhHPTN1NDu2HEL2INoB5f6Mt5e6CpY\n+z+EVtV+1nDB2LkeFKb8u/XkwPqhb1Vf4w1ZcFEDPjj760dPgmMixpPK6ZHdZVaE\ncXuNyGY37q3zYhdYyL8nB9kmFVxz7e6bwg3vSheLjQKBgQDt+GxOA7Q+VerGTrFB\nBC3jT0n46Rk4xhuBRZXL/WjtIuV7zs2qsRHujgOPq1pmdwsbYAvqh0iXulgQZ+9p\nuXNVaFQrQFPgkxvNTI2uEa7XfNkT7LUIcLALv/19KTnN6K+fzzAT4TDi8Xlamzyy\nHOQ/BAJnidkmwNRXVMo5u+PEZQKBgQDs7p3d4an6aYwPeko0jNNW+Ej9bmTw6amL\nm/tCMoIi8AhPAj5td+jZoNtuoyyyKFrsu5KS/ua0ojzs4/1Is4Q7TKhHYz8SleIM\nR4CoV6WCkt9zLjxA3pipVgrDGXOWyDkJ+3Iq8L1dv11EpQlnsxKupCgYpLuvfqQv\naxZco/yM/QKBgQDVWRegiemayWSHDh4UcC7D0F49bp5SLCqUp1I5ZKQhlluvuCTj\nl4TAH0pKEBIoMyoeDOoiBc+rWEGD0+rtGnqwY6yyaiXI/Zq7YJrVKL1cLG5iUqGr\nQ3xRzHrzL3bHiImL+TDdYdN2Y4+tD+hGt2haprmRIiExgUfeVAJJ6I23kQKBgQC2\nJKK8RpVz6tw/sdWGHJUEEQ+btNho1FkA+MLqGwYscbcRdjoj0cDyPVUz8sGTnK55\nu6Fs3ATj7K1Ft+epkkgfhkj/yG5ejVcf9YAU6nxUqzCYzXyIqhdWZs0TO2e/DOG8\nqM8V78jEXy8GbJGUZPgBxjUE7O9UdNknkv237mFiyQKBgQC06DSvWpqb8WIT6YOJ\nd1fpxtlcAmrAG712zfNC25+yX8b8wkV4W05sMqKzjhjcQP0dF2QRWXWRvTtFKMnV\nkZnYwQHPVFNsVWvkwfsEKREET2Lon56FWvO4K1aVQHFPEGV8wnlXMET/BIHG4fe0\nS3UQ7bKQr6eqEBSxZOiMuMPCaw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "loan-bot@loan-bot.iam.gserviceaccount.com",
+  "client_id": "111050361603941144302",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/loan-bot%40loan-bot.iam.gserviceaccount.com"
+}

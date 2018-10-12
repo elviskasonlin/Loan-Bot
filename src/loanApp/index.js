@@ -16,6 +16,10 @@ module.exports.start = function (webhook_event) {
 }
 
 module.exports.handle = function (webhook_event) {
+
+
+
+  /*
   const ps_id = webhook_event.sender.id;
 
   if (webhook_event.message.text && webhook_event.message.text.toLowerCase() == 'quit') {
@@ -46,6 +50,7 @@ module.exports.handle = function (webhook_event) {
   } else {
     nextStep(question.goto.default);
   }
+*/
 
 }
 
