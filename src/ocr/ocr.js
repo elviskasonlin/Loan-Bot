@@ -17,7 +17,7 @@ const new_uri = image_uri.slice(0, 5) + image_uri.slice(6);
 
 // Performs label detection on the image file
 client
-  .textDetection("http://gdurl.com/UzMJ")
+  .textDetection(new_uri)
   .then(results => {
     // Almost entire object.
     // detections include bounding boxes etc.
