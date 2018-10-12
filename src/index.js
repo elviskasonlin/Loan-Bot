@@ -22,9 +22,6 @@ app.use(require('body-parser').json());
 const graph = require('./graph/index');
 const eventHandler = require('./eventHandler/index');
 
-// Load gcv key
-const GOOGLE_APPLICATION_CREDENTIALS = OpenSSL::PKey::RSA.new(ENV['GCV_PRIVATE_KEY'])
-
 //////////////////////
 // Webhook endpoint //
 //////////////////////
