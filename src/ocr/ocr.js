@@ -15,7 +15,7 @@ module.exports.ocr = function (image_uri) {
   const client = new gvision.ImageAnnotatorClient();
 
   // Performs label detection on the image file
-  clientu
+  client
     .documentTextDetection(image_uri)
     .then(results => {
       // Almost entire object.
