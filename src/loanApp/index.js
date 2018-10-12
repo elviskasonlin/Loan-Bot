@@ -17,7 +17,6 @@ module.exports.start = function (webhook_event) {
 
 module.exports.handle = function (webhook_event) {
 
-  if
 
   /*
   const ps_id = webhook_event.sender.id;
@@ -51,9 +50,12 @@ module.exports.handle = function (webhook_event) {
     nextStep(question.goto.default);
   }
 
-}
+
 */
+}
+
 const askQuestion = function (event, question) {
+
   let response; 
   let img_uri;
 
