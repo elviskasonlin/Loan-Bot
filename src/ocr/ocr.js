@@ -21,12 +21,28 @@ module.exports.ocr = function (image_uri) {
       // Almost entire object.
       // detections include bounding boxes etc.
       // text only accesses the final stringed text
-      const detections = results[0].fullTextAnnotation;
-      const text = detections.text;
+      const fullTextAnnotation = results[0].fullTextAnnotation;
+      console.log(`Full text: ${fullTextAnnotation.text}`);
+  
+      fullTextAnnotation.pages.forEach(page => {
+        page.blocks.forEach(block => {
+          console.log(`Block confidence: ${block.confidence}`);
+          block.paragraphs.forEach(paragraph => {
+            console.log(`Paragraph confidence: ${paragraph.confidence}`);
+            paragraph.words.forEach(word => {
+              const wordText = word.symbols.map(s => s.text).join('');
+              console.log(`Word text: ${wordText}`);
+              console.log(`Word confidence: ${word.confidence}`);
+              word.symbols.forEach(symbol => {
+                console.log(`Symbol text: ${symbol.text}`);
+                console.log(`Symbol confidence: ${symbol.confidence}`);
+              });
+            });
+          });
+        });
+      });
 
-      // console.log('Text:' + text);
-      console.log(detections);
-
+      console.log(JSON.stringify(fullTextAnnotation));
       const classified = classify.classify(text);
 
 
