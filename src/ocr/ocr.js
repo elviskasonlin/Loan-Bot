@@ -22,8 +22,7 @@ module.exports.ocr = function (image_uri) {
       // detections include bounding boxes etc.
       // text only accesses the final stringed text
       const fullTextAnnotation = results[0].fullTextAnnotation;
-      console.log(`Full text: ${fullTextAnnotation.text}`);
-  
+
       fullTextAnnotation.pages.forEach(page => {
         page.blocks.forEach(block => {
           console.log(`Block confidence: ${block.confidence}`);

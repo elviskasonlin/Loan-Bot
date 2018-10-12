@@ -22,6 +22,9 @@ app.use(require('body-parser').json());
 const graph = require('./graph/index');
 const eventHandler = require('./eventHandler/index');
 
+// Load gcv key
+const 
+
 //////////////////////
 // Webhook endpoint //
 //////////////////////
