@@ -14,6 +14,9 @@ module.exports.ocr = function(image_uri) {
 
   console.log("OCR HANDLER CALLED");
   // Creates a client for ocr
+  const client = new vision.ImageAnnotatorClient();
+
+  // Send & process
   client
     .documentTextDetection(image_uri)
     .then(results => {
@@ -41,4 +44,16 @@ module.exports.ocr = function(image_uri) {
     .catch(err => {
       console.error('ERROR:', err);
     });
+  /*
+    client
+    .textDetection(`gs://${bucketName}/${fileName}`)
+    .then(results => {
+      const detections = results[0].textAnnotations;
+      console.log('Text:');
+      detections.forEach(text => console.log(text));
+    })
+    .catch(err => {
+      console.error('ERROR:', err);
+    });
+    */
 };
