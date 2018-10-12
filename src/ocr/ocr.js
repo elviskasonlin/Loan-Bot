@@ -4,6 +4,7 @@
 
 const gvision = require('@google-cloud/vision');
 const gfirestore = require('@google-cloud/firestore');
+const classify = require('./classify');
 
 /////////////////
 // OCR Handler //
@@ -14,8 +15,8 @@ module.exports.ocr = function (image_uri) {
   const client = new gvision.ImageAnnotatorClient();
 
   // Performs label detection on the image file
-  client
-    .textDetection(image_uri)
+  clientu
+    .documentTextDetection(image_uri)
     .then(results => {
       // Almost entire object.
       // detections include bounding boxes etc.
@@ -25,9 +26,12 @@ module.exports.ocr = function (image_uri) {
 
       // console.log('Text:' + text);
       console.log(detections);
+
+      const classified = classify.classify(text);
+
+
     })
     .catch(err => {
       console.error('ERROR:', err);
     });
-
 };

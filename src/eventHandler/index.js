@@ -10,6 +10,7 @@ const state = {
 // Import modules
 const graph = require('../graph/index');
 const loanapp = require('../loanApp/index');
+const ocr = require('../ocr/ocr')
 loanapp.state = state;
 
 ////////////////////
@@ -29,30 +30,7 @@ module.exports.handleMessageEvent = function (sender_psid, received_message, web
     // Gets the URL of the message attachment
     const attachment_url = received_message.attachments[0].payload.url;
 
-    response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Is this the right picture?",
-            "subtitle": "Tap a button to answer.",
-            "image_url": attachment_url,
-            "buttons": [{
-                "type": "postback",
-                "title": "Yes!",
-                "payload": "yes",
-              },
-              {
-                "type": "postback",
-                "title": "No!",
-                "payload": "no",
-              }
-            ],
-          }]
-        }
-      }
-    }
+    
 
   }
 
