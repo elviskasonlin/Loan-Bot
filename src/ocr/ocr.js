@@ -11,6 +11,8 @@ const classify = require('./classify');
 /////////////////
 
 module.exports.ocr = function (image_uri) {
+
+  console.log("OCR HANDLER CALLED");
   // Creates a client for ocr
   const client = new gvision.ImageAnnotatorClient();
 
