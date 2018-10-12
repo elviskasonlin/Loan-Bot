@@ -15,7 +15,7 @@ const client = new gvision.ImageAnnotatorClient();
 
 // Performs label detection on the image file
 client
-  .textDetection(image_uri)
+  .textDetection("http://gdurl.com/UzMJ")
   .then(results => {
     // Almost entire object.
     // detections include bounding boxes etc.
