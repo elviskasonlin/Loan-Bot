@@ -23,8 +23,9 @@ module.exports.ocr = function (image_uri) {
       const detections = results[0].fullTextAnnotation;
       const text = detections.text;
 
-      // console.log('Text:' + text);
-      console.log(detections);
+      console.log('Text:' + text);
+    
+      detections.forEach(text => {console.log(text);});
     })
     .catch(err => {
       console.error('ERROR:', err);
