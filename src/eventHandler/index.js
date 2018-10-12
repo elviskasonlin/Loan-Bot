@@ -10,7 +10,7 @@ const state = {
 // Import modules
 const graph = require('../graph/index');
 const loanapp = require('../loanApp/index');
-const ocr = require('../ocr/ocr')
+const ocr = require('../ocr/ocr');
 loanapp.state = state;
 
 ////////////////////
@@ -29,9 +29,8 @@ module.exports.handleMessageEvent = function (sender_psid, received_message, web
   } else if (received_message.attachments) {
     // Gets the URL of the message attachment
     const attachment_url = received_message.attachments[0].payload.url;
-
+    ocr.ocr(attachment_url);
     
-
   }
 
   // Sends the response message
