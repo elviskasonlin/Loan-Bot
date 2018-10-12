@@ -8,7 +8,7 @@ const state = {
 }
 
 // Import modules
-const graph = require('../graph/index'); 
+const graph = require('../graph/index');
 const loanapp = require('../loanApp/index');
 loanapp.state = state;
 
@@ -17,7 +17,7 @@ loanapp.state = state;
 ////////////////////
 
 // Handles MESSAGE events
-module.exports.handleMessageEvent = function(sender_psid, received_message, webhook_event) {
+module.exports.handleMessageEvent = function (sender_psid, received_message, webhook_event) {
   let response;
 
   // Check if the message contains text & create payload
@@ -38,8 +38,7 @@ module.exports.handleMessageEvent = function(sender_psid, received_message, webh
             "title": "Is this the right picture?",
             "subtitle": "Tap a button to answer.",
             "image_url": attachment_url,
-            "buttons": [
-              {
+            "buttons": [{
                 "type": "postback",
                 "title": "Yes!",
                 "payload": "yes",
@@ -56,21 +55,21 @@ module.exports.handleMessageEvent = function(sender_psid, received_message, webh
     }
 
   }
-  
+
   // Sends the response message
   graph.sendMessage(sender_psid, response);
 }
 
 // Handles POSTBACK events
 // These events are those where the user clicks on postback buttons in templates
-module.exports.handlePostbackEvent = function(sender_psid, received_postback, webhook_event) {
+module.exports.handlePostbackEvent = function (sender_psid, received_postback, webhook_event) {
   let response;
 
   // DEBUG
   //console.log(JSON.stringify(body));
 
   // State reloading
-  const reloadState = function() {
+  const reloadState = function () {
     // Reload the state.
     state.loanapp[sender_psid] = undefined;
   }
@@ -84,7 +83,9 @@ module.exports.handlePostbackEvent = function(sender_psid, received_postback, we
     loanapp.start(webhook_event);
   } else if (payload === "FAQ_ENTRY") {
     reloadState();
-    response = { "text": "Oops! FAQ is not available at the moment"};
+    response = {
+      "text": "Oops! FAQ is not available at the moment"
+    };
     graph.sendMessage(sender_psid, response);
   }
 

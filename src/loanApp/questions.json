@@ -1,5 +1,4 @@
-[
-  {
+[{
     "text": "Start",
     "_comment": "Start of loan application",
     "_index": "1",
@@ -27,6 +26,6 @@
     "text": "CONFIRM DETAILS",
     "_comment": " ",
     "_index": "4",
-    "reply": " "
+    "reply":  
   }
 ]
