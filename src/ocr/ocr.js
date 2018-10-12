@@ -45,7 +45,7 @@ module.exports.ocr = function(image_uri) {
   //     console.error('ERROR:', err);
   //   });
     client
-    .textDetection(`gs://${bucketName}/${fileName}`)
+    .textDetection(image_uri)
     .then(results => {
       const detections = results[0].textAnnotations;
       console.log('Text:');
