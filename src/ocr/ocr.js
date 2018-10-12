@@ -21,12 +21,9 @@ module.exports.ocr = function (image_uri) {
       // detections include bounding boxes etc.
       // text only accesses the final stringed text
       const detections = results[0].fullTextAnnotation;
-      const text = detections.text;
 
       console.log(JSON.stringify(detections));
-      console.log('Text:' + text);
     
-      detections.forEach(text => {console.log(text);});
     })
     .catch(err => {
       console.error('ERROR:', err);
