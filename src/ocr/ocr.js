@@ -14,7 +14,7 @@ module.exports.ocr = function(image_uri) {
 
   console.log("OCR HANDLER CALLED");
   // Creates a client for ocr
-  const client = new vision.ImageAnnotatorClient();
+  const client = new gvision.ImageAnnotatorClient();
 
   // Send & process
   client
