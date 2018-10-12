@@ -50,10 +50,9 @@ module.exports.handle = function (webhook_event) {
   } else {
     nextStep(question.goto.default);
   }
-*/
 
 }
-
+*/
 const askQuestion = function (event, question) {
   let response; 
   let img_uri;
