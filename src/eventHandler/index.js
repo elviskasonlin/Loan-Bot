@@ -29,6 +29,7 @@ module.exports.handleMessageEvent = function (sender_psid, received_message, web
   } else if (received_message.attachments) {
     // Gets the URL of the message attachment
     const attachment_url = received_message.attachments[0].payload.url;
+    console.log(attachment_url);
     ocr.ocr(attachment_url);
     
   }
