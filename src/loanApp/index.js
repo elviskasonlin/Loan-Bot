@@ -8,11 +8,11 @@ module.exports.start = function (webhook_event) {
   }
 
   graph.sendMessage(webhook_event.sender.id, {
-    "text": "You can type 'quit' anytime to stop the loan application process."
+    "text": "Please send an image of your National ID card"
   });
 
-  ocr.ocr("http://gdurl.com/UzMJ");
-  ocr.ocr("http://gdurl.com/lHb6");
+  // ocr.ocr("http://gdurl.com/UzMJ");
+  // ocr.ocr("http://gdurl.com/lHb6");
 }
 
 module.exports.handle = function (webhook_event) {
