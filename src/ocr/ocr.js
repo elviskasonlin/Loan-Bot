@@ -54,6 +54,9 @@ module.exports.ocr = function (image_uri) {
       console.log(JSON.stringify(fullTextAnnotation));
       const classified = classify.classify(text);
 
+      let response = {
+        
+      }
 
     })
     .catch(err => {
